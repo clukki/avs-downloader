@@ -20,6 +20,6 @@ i did not get block.
 
 # tasks
 
-- [] parse the html page and manually get the m3u8 playlist instead of relying on jwplayer
-- [] ranged chunks download
-- [] parallel fetching (might be blocked idk)
+- [ ] parse the html page and manually get the m3u8 playlist instead of relying on jwplayer
+- [ ] ranged chunks download
+- [ ] parallel fetching (might be blocked idk)
