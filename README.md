@@ -2,6 +2,11 @@
 
 simple userscript providing barebone anime downloader for animevietsub
 
+# notice (? lol)
+
+script not working bc of recent massive rehaul of the codebase
+see [fetch.md](/fetch.md) for more info
+
 # some backstories
 
 i made this bc previously i created a python script for downloading anime
