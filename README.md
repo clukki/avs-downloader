@@ -35,7 +35,7 @@ solves all the problems but makes mass downloading harder.
 
 i have only tested this 1 time, but yeah it works. at first i was scared that they
 would have block me again because of the unusual traffic but fuck yeah it works lol
-i did not get block.
+i did not get blocked.
 
 # tasks
 
