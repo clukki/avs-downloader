@@ -1,18 +1,12 @@
 // ==UserScript==
 // @name        Avs downloader
 // @namespace   avs_downloader
-// @match       https://animevietsub.*/phim/*/*.html
+// @match       https://animevietsub.id/phim/*/xem-phim.html
 // @grant       GM.download
 // @version     1.0
 // @author      clukki
-// @description 3/11/2026, 2:47:36 PM
+// @description Download videos from animevietsub (parent script).
 // ==/UserScript==
-
-// TODO: manually parse the html page for video info instead of waiting for jwplayer
-const $ = unsafeWindow.$;
-const sleep = (ms) => {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-};
 
 let downloadRunning = false;
 const onDownload = async (allLinks) => {
@@ -80,7 +74,7 @@ const onDownload = async (allLinks) => {
 };
 
 let ran = false;
-const onLoaded = async () => {
+const onLoaded = async (playlist) => {
   if (ran) return;
   ran = true;
   const $downloadPanel = $("<div>")
@@ -103,13 +97,6 @@ const onLoaded = async () => {
     })
     .appendTo($(".MovieTabNav.ControlPlayer"));
 
-  const playlistBlob = unsafeWindow
-    .jwplayer("media-player")
-    .getPlaylist()[0].file;
-  const playlist = await (await fetch(playlistBlob)).text();
-  // TODO: this is unfinished lol
-  // const re = /AnimeVsub\('(.*)'/;
-  const pageLink = $("head script:last-of-type").text.match(re)[1];
   let allLinks = [];
   let linkI = 0;
   for (const line of playlist.split("\n")) {
@@ -140,18 +127,7 @@ const onLoaded = async () => {
     .prependTo($downloadPanel);
 };
 
-// const observer = new MutationObserver(async (mutations, o) => {
-//   for (const mutation of mutations) {
-//     if (
-//       mutation.type == "attributes" &&
-//       mutation.attributeName == "class" &&
-//       $("#media-player").hasClass("jwplayer")
-//     ) {
-//       await onLoaded();
-//       o.disconnect();
-//       return;
-//     }
-//   }
-// });
-//
-// observer.observe(document.body, { attributes: true, subtree: true });
+unsafeWindow.addEventListener("message", (ev) => {
+  if (ev.origin !== "https://storage.googleapiscdn.com") return;
+  onLoaded(ev.data);
+});
