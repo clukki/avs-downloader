@@ -1,11 +1,25 @@
 # avs-downloader
 
-simple userscript providing barebone anime downloader for animevietsub
+simple userscripts providing barebone anime downloader for animevietsub
 
-# notice (? lol)
+there are 2 userscripts: one for fetching the playlist file and one that provides
+the ui and download
 
-script not working bc of recent massive rehaul of the codebase
-see [fetch.md](/fetch.md) for more info
+this is to bypass the iframe same origin limitation after recent changes
+(the website puts the player inside of an iframe)
+
+it is required that both scripts are installed
+
+# some rant
+
+to the guy who said that the admin should block userscripts manager, yeah thats not
+happening www
+
+there are legitimate usage for this script, including offline watching, so i don't see
+blocking userscripts provides any benefits to the admin whatsoever
+
+besides, if the reason for blocking downloader is for stopping scrapers? theyre going to
+found ways to bypass those in no time
 
 # some backstories
 
@@ -25,6 +39,6 @@ i did not get block.
 
 # tasks
 
-- [ ] parse the html page and manually get the m3u8 playlist instead of relying on jwplayer
+- [x] parse the html page and manually get the m3u8 playlist instead of relying on jwplayer
 - [ ] ranged chunks download
 - [ ] parallel fetching (might be blocked idk)
