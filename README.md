@@ -15,7 +15,7 @@ it is required that both scripts are installed
 to the guy who said that the admin should block userscripts manager, yeah thats not
 happening www
 
-there are legitimate usage for this script, including offline watching, so i don't see
+there are legitimate uses for this script, including offline watching, so i don't see
 blocking userscripts provides any benefits to the admin whatsoever
 
 besides, if the reason for blocking downloader is for stopping scrapers? theyre going to
