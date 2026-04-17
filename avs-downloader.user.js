@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        Avs downloader
 // @namespace   avs_downloader
-// @match       https://animevietsub.id/phim/*/xem-phim.html
+// @match       https://www.animevietsub.id/phim/*/*.html
 // @grant       GM.download
 // @version     1.0
 // @author      clukki
@@ -129,5 +129,6 @@ const onLoaded = async (playlist) => {
 
 unsafeWindow.addEventListener("message", (ev) => {
   if (ev.origin !== "https://storage.googleapiscdn.com") return;
-  onLoaded(ev.data);
+  if (ev.data[0] != "avs-downloader-fetcher") return;
+  onLoaded(ev.data[1]);
 });

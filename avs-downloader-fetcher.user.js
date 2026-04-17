@@ -27,5 +27,8 @@ const getPlaylist = async () => {
 };
 
 (async () => {
-  unsafeWindow.top.postMessage(await getPlaylist(), "https://animevietsub.id");
+  unsafeWindow.top.postMessage(
+    ["avs-downloader-fetcher", await getPlaylist()],
+    "https://www.animevietsub.id",
+  );
 })();
