@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        Avs downloader
 // @namespace   avs_downloader
-// @match       https://www.animevietsub.id/phim/*/*.html
+// @match       https://animevietsub.id/phim/*/*.html
 // @grant       GM.download
 // @version     1.0
 // @author      clukki
